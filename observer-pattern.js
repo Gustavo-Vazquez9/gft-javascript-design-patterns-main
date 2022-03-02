@@ -79,10 +79,12 @@ const Escribir=(identificador)=>{
 
 
 const Enviar=()=>{
+    // Esto se envía al observador 
     var autor = document.getElementById('nombre_contacto').innerHTML;
     var mensaje = document.getElementById('mensaje').value;
     observador.ubicar(mensaje,autor);
 
+    // Esto se muestra en el index
     var abuelo = document.getElementById('chat');
     var papa = document.getElementById('papa');
     var div = document.createElement('div');
@@ -92,18 +94,19 @@ const Enviar=()=>{
         div.appendChild(muestra_mensaje);
         papa.appendChild(div);
         abuelo.appendChild(papa);
+
+    // Se muestran las notificaciones
+    var user = document.getElementById('contusuario');
+    var noti = document.createElement('div');
+    noti.className = 'notify';
+    noti.id = 'notify';
+    var num = document.createElement('h4');
+    num.innerHTML = 2;
+
+    noti.appendChild(num);
+    user.appendChild(noti);
+    
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

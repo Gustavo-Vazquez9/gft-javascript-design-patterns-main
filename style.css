@@ -101,6 +101,23 @@
     display: flex;
     border-bottom: 1px solid #cfcfcf;
 }
+
+
+.contusuario .notify {
+    background-color: red;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    top: 1px;
+    right: 4px;
+}
+
+.contusuario .notify h4 {
+    color: #cfcfcf;
+    padding: 1px;
+    position: absolute;
+}
+
 .contusuario button{
     border: 1px solid #23A8D2;
     width: 80px;

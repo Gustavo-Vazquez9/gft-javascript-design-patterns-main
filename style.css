@@ -1,0 +1,137 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.cabezera{
+    margin-top: 30px;
+    border-bottom: 1.5px solid rgb(206, 206, 206);
+    text-align: center;
+}
+.cabezera .titulo{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    margin: 20px;
+}
+.cabezera .input_nuevo{
+    margin: 20px;
+    width: 300px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid rgb(116, 116, 116);
+    padding: 10px;
+    font-size: 15px;
+}
+.cabezera .btn_agregar{
+    border: 1px solid #23A8D2;
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: #23A8D2;
+    cursor: pointer;
+}
+
+
+
+
+/*chat*/
+.chat{
+    border: 1px solid rgb(209, 209, 209);
+    width: 50%;
+    height: 350px;
+    margin: 20px auto;
+    position: relative;
+}
+.area_mensaje{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 5px;
+}
+.mensaje{
+    width: 80%;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid rgb(116, 116, 116);
+    padding: 10px;
+    font-size: 15px;
+    bottom: 0;
+}
+.btn_enviar{
+    border: 1px solid #23A8D2;
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: #23A8D2;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*muestra*/
+.guarda_boton{
+    text-align: center;
+}
+.mostrar{
+    border: 1px solid #23A8D2;
+    width: 50%;
+    height: 35px;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: #23A8D2;
+    cursor: pointer;
+}
+.contactos{
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+}
+.contusuario{
+    display: flex;
+    border-bottom: 1px solid #cfcfcf;
+}
+.contusuario button{
+    border: 1px solid #23A8D2;
+    width: 80px;
+    height: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: #23A8D2;
+    cursor: pointer;
+    margin: 10px;
+}
+.contusuario h3{
+    margin: auto 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+
+
+/*trabajando con la ari*/
+.papa{
+    width: 100%;
+    height: 80%;
+    overflow: scroll;
+}
+.hijo{
+    width: 80%;
+    background-color: #23A8D2;
+    margin: 10px;
+    border-radius: 75px;
+}
+.hijo h4{
+    padding:5px;
+}

@@ -16,9 +16,10 @@ class Observador {
         this.subscriptores.forEach(subscriptor => subscriptor.mensaje.call(subscriptor, evento));
     }
     ubicar(notificacion,autor){
-        this.subscriptores.forEach(subscriptor => {
+        this.subscriptores.forEach((subscriptor,id) => {
             if(subscriptor.nombre !== autor){
-                subscriptor.mensaje.call(subscriptor, notificacion, autor)
+                subscriptor.mensaje.call(subscriptor, notificacion, autor);
+                subscriptor.creacion(autor,id);
             }
         });
     }
@@ -34,6 +35,16 @@ class Subscriptor {
     mensaje(evento,autor) {
         console.log(`${this.nombre}, ${autor} ha enviado: ${evento}` );
     }
+    creacion(nombre,id){
+        var user = document.getElementById(`contusuario-${id}`);
+        var noti = document.createElement('div');
+            noti.className = 'notify';
+            noti.id = 'notify';
+        var num = document.createElement('h4');
+        num.innerHTML = nombre;
+        noti.appendChild(num);
+        user.appendChild(noti);
+    }
 
 }
 const observador = new Observador();
@@ -43,7 +54,7 @@ const Mostrar=()=>{
     
             observador.subscriptores.forEach((nombre,b)=>{
                 var contenedor_usuario = document.createElement('div');
-                    contenedor_usuario.id= 'contusuario';
+                    contenedor_usuario.id= `contusuario-${cont}`;
                     contenedor_usuario.className= 'contusuario';
                 var nombre_usuario = document.createElement('h3');
                 contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})">Escribir</button>`;
@@ -61,7 +72,7 @@ const Agregar= () =>{
     const nombres = document.getElementById('input-subscriptores').value;
     observador.subscribir(new Subscriptor(nombres));
                     var contenedor_usuario = document.createElement('div');
-                        contenedor_usuario.id= 'contusuario';
+                        contenedor_usuario.id= `contusuario-${cont}`;
                         contenedor_usuario.className= 'contusuario';
                     var nombre_usuario = document.createElement('h3');
                     contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})">Escribir</button>`;
@@ -95,7 +106,7 @@ const Enviar=()=>{
         papa.appendChild(div);
         abuelo.appendChild(papa);
 
-    // Se muestran las notificaciones
+    /*/ Se muestran las notificaciones
     var user = document.getElementById('contusuario');
     var noti = document.createElement('div');
     noti.className = 'notify';
@@ -104,7 +115,7 @@ const Enviar=()=>{
     num.innerHTML = 2;
 
     noti.appendChild(num);
-    user.appendChild(noti);
+    user.appendChild(noti);*/
     
 }
 

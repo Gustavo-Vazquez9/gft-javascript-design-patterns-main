@@ -17,20 +17,27 @@
         <input type="text" placeholder="Ingresa el subscriptor" id="input-subscriptores" class="input_nuevo">
         <button onclick="Agregar()" class="btn_agregar">Agregar</button>
     </section>
-    
-    <div class="chat" id="chat">
-        <h4 id="nombre_contacto"></h4>
-        <div class="papa" id="papa"></div>
-        <div class="area_mensaje">
-            <input type="text" placeholder="Escribe tu mensaje" id="mensaje" class="mensaje">
-            <button id="enviar" onclick="Enviar()" class="btn_enviar">Enviar</button>
+
+    <section class="contenedor">
+        <div class="contenedor2">
+            <div class="guarda_boton">
+                <button onclick="Mostrar()" class="mostrar">Mostrar</button>
+            </div>
+            <div class="contactos" id="contactos">
+                
+            </div>
         </div>
-    </div>
-    <div class="guarda_boton">
-        <button onclick="Mostrar()" class="mostrar">Mostrar</button>
-    </div>
-    <div class="contactos" id="contactos">
-        
-    </div>
+        <div class="contenedor1">
+            <div class="chat" id="chat">
+                <h4 id="nombre_contacto"></h4>
+                <div class="papa" id="papa"></div>
+                <div class="area_mensaje">
+                    <input type="text" placeholder="Escribe tu mensaje" id="mensaje" class="mensaje">
+                    <button id="enviar" onclick="Enviar()" class="btn_enviar">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>

@@ -1,3 +1,4 @@
+var bandera = 0;
 class Observador {
 
     constructor() {
@@ -20,6 +21,8 @@ class Observador {
             if(subscriptor.nombre !== autor){
                 subscriptor.mensaje.call(subscriptor, notificacion, autor);
                 subscriptor.creacion(autor,id);
+            }else{
+                subscriptor.eliminacion(autor,id);
             }
         });
     }
@@ -37,13 +40,27 @@ class Subscriptor {
     }
     creacion(nombre,id){
         var user = document.getElementById(`contusuario-${id}`);
-        var noti = document.createElement('div');
+        if(user.childElementCount < 3)
+        {
+            var noti = document.createElement('div');
             noti.className = 'notify';
             noti.id = 'notify';
-        var num = document.createElement('h4');
-        num.innerHTML = nombre;
-        noti.appendChild(num);
-        user.appendChild(noti);
+            var num = document.createElement('h4');
+            num.id = `text-${id}`;
+            num.innerHTML = nombre;
+            noti.appendChild(num);
+            user.appendChild(noti);
+        }else{
+            var texto = document.getElementById(`text-${id}`);
+            texto.innerHTML = nombre;
+        }
+    }
+    eliminacion(nombre,id){
+        var user = document.getElementById(`contusuario-${id}`);
+        if(user.childElementCount == 3)
+        {
+            user.removeChild(user.childNodes[2]);
+        }
     }
 
 }
@@ -94,7 +111,6 @@ const Enviar=()=>{
     var autor = document.getElementById('nombre_contacto').innerHTML;
     var mensaje = document.getElementById('mensaje').value;
     observador.ubicar(mensaje,autor);
-
     // Esto se muestra en el index
     var abuelo = document.getElementById('chat');
     var papa = document.getElementById('papa');
@@ -105,17 +121,6 @@ const Enviar=()=>{
         div.appendChild(muestra_mensaje);
         papa.appendChild(div);
         abuelo.appendChild(papa);
-
-    /*/ Se muestran las notificaciones
-    var user = document.getElementById('contusuario');
-    var noti = document.createElement('div');
-    noti.className = 'notify';
-    noti.id = 'notify';
-    var num = document.createElement('h4');
-    num.innerHTML = 2;
-
-    noti.appendChild(num);
-    user.appendChild(noti);*/
     
 }
 

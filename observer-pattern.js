@@ -66,21 +66,23 @@ class Subscriptor {
 }
 const observador = new Observador();
 var cont=0;
+const talacha = (nombre,contenedor) => {
+    var contenedor_usuario = document.createElement('div');
+    contenedor_usuario.id= `contusuario-${cont}`;
+    contenedor_usuario.className= 'contusuario';
+    var nombre_usuario = document.createElement('h3');
+    contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})">Escribir</button>`;
+    nombre_usuario.innerHTML= nombre;
+    nombre_usuario.id=`nu-${cont}`;
+    contenedor_usuario.appendChild(nombre_usuario);
+    contenedor.appendChild(contenedor_usuario);
+    cont++;
+}
 const Mostrar=()=>{
     var contenedor = document.getElementById("contactos");
-    
-            observador.subscriptores.forEach((nombre,b)=>{
-                var contenedor_usuario = document.createElement('div');
-                    contenedor_usuario.id= `contusuario-${cont}`;
-                    contenedor_usuario.className= 'contusuario';
-                var nombre_usuario = document.createElement('h3');
-                contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})">Escribir</button>`;
-                nombre_usuario.innerHTML= nombre.nombre;
-                nombre_usuario.id=`nu-${cont}`;
-                contenedor_usuario.appendChild(nombre_usuario);
-                contenedor.appendChild(contenedor_usuario);
-                cont++;
-            });
+    observador.subscriptores.forEach((nombre,b)=>{
+                talacha(nombre.nombre, contenedor);
+    });
 }
 
 
@@ -88,16 +90,7 @@ const Agregar= () =>{
     var contenedor = document.getElementById("contactos");
     const nombres = document.getElementById('input-subscriptores').value;
     observador.subscribir(new Subscriptor(nombres));
-                    var contenedor_usuario = document.createElement('div');
-                        contenedor_usuario.id= `contusuario-${cont}`;
-                        contenedor_usuario.className= 'contusuario';
-                    var nombre_usuario = document.createElement('h3');
-                    contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})">Escribir</button>`;
-                    nombre_usuario.innerHTML= nombres;
-                    nombre_usuario.id=`nu-${cont}`;
-                    contenedor_usuario.appendChild(nombre_usuario);
-                    contenedor.appendChild(contenedor_usuario);
-                    cont++;
+    talacha(nombres, contenedor);
 }
 
 const Escribir=(identificador)=>{

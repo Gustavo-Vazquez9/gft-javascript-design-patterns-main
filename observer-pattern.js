@@ -66,12 +66,15 @@ class Subscriptor {
 }
 const observador = new Observador();
 var cont=0;
+var a=4;
+var m=0;
 const talacha = (nombre,contenedor) => {
+    
     var contenedor_usuario = document.createElement('div');
     contenedor_usuario.id= `contusuario-${cont}`;
     contenedor_usuario.className= 'contusuario';
     var nombre_usuario = document.createElement('h3');
-    contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})">Escribir</button>`;
+    contenedor_usuario.innerHTML=`<button onclick="Escribir(${cont})"><i class="fas fa-edit"></i></button>`;
     nombre_usuario.innerHTML= nombre;
     nombre_usuario.id=`nu-${cont}`;
     contenedor_usuario.appendChild(nombre_usuario);
@@ -80,9 +83,9 @@ const talacha = (nombre,contenedor) => {
 }
 const Mostrar=()=>{
     var contenedor = document.getElementById("contactos");
-    observador.subscriptores.forEach((nombre,b)=>{
-                talacha(nombre.nombre, contenedor);
-    });
+        observador.subscriptores.forEach((nombre,b)=>{
+            talacha(nombre.nombre, contenedor);
+        });
 }
 
 
@@ -95,7 +98,7 @@ const Agregar= () =>{
 
 const Escribir=(identificador)=>{
     var nombre_contacto_escribir = document.getElementById(`nu-${identificador}`).innerHTML;
-    nombre_contacto.innerHTML=nombre_contacto_escribir;
+        nombre_contacto.innerHTML=nombre_contacto_escribir;
 }
 
 
